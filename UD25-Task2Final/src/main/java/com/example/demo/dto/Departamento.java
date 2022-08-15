@@ -2,6 +2,7 @@ package com.example.demo.dto;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -14,12 +15,13 @@ public class Departamento {
 
 	@Id
 	public int codigo;
-	
+	@Column
 	public String nombre;
+	@Column
 	public int presupuesto;
 	
-	 @OneToMany
-	    @JoinColumn(name="dni")
+	 	@OneToMany
+	    @JoinColumn(name="id")
 	    private List<Empleado> empleado;
 
 	 public Departamento() {

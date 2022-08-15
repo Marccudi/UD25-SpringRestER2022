@@ -21,24 +21,24 @@ import com.example.demo.service.EmpleadoServiceImpl;
 @RequestMapping("/api")
 public class EmpleadoController {
 	@Autowired
-	EmpleadoServiceImpl clienteServideImpl;
+	EmpleadoServiceImpl emp;
 	
 	@GetMapping("/empleados")
 	public List<Empleado> listarEmpleados(){
-		return EmpleadoServiceImpl.listarEmpleados();
+		return emp.listarEmpleados();
 	}
 	
 	@GetMapping("/empleados/{id}")
 	public Empleado listarEmpleadosXID(@PathVariable(name="id") String id){
 		Empleado artxid= new Empleado();
-		artxid=EmpleadoServiceImpl.empleadoXID(id);
+		artxid=emp.empleadoXID(id);
 		return artxid;
 	}
 
 	@PostMapping("/empleados")
 	public Empleado salvarempleado(@RequestBody Empleado empleado) {
 		
-		return EmpleadoServiceImpl.guardarEmpleado(empleado);
+		return emp.guardarEmpleado(empleado);
 	}
 	
 	
@@ -48,21 +48,21 @@ public class EmpleadoController {
 		Empleado empleado_seleccionado= new Empleado();
 		Empleado empleado_actualizado= new Empleado();
 		
-		empleado_seleccionado= EmpleadoServiceImpl.empleadoXID(id);
+		empleado_seleccionado= emp.empleadoXID(id);
 		
 		empleado_seleccionado.setNombre(empleado.getNombre());
 		empleado_seleccionado.setApellidos(empleado.getApellidos());
 		empleado_seleccionado.setDepartamento(empleado.getDepartamento());
 		
-		empleado_actualizado = EmpleadoServiceImpl.actualizarEmpleado(empleado_seleccionado);
+		empleado_actualizado = emp.actualizarEmpleado(empleado_seleccionado);
 		
 		System.out.println("El empleado actualizado es: "+ empleado_actualizado);
 		
 		return empleado_actualizado;
 	}
 	
-	@DeleteMapping("/empleados/{id}")
-	public void eliminarEmpleado(@PathVariable(name="id")String id) {
-		EmpleadoServiceImpl.eliminarEmpleado(id);
+	@DeleteMapping("/empleados/{dni}")
+	public void eliminarEmpleado(@PathVariable(name="dni")String dni) {
+		emp.eliminarEmpleado(dni);
 	}
 }

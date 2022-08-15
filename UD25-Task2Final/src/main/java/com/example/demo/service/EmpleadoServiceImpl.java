@@ -11,41 +11,40 @@ import com.example.demo.dto.Empleado;
 @Service
 public class EmpleadoServiceImpl {
 	@Autowired
-	static
 	IEmpleadoDAO EmpleadoDAO;
 	
 	
-	public static List<Empleado> listarEmpleados() {
+	public List<Empleado> listarEmpleados() {
 		
 		return EmpleadoDAO.findAll();
 	}
 
 	
-	public static Empleado guardarEmpleado(Empleado empleado) {
+	public Empleado guardarEmpleado(Empleado empleado) {
 		
 		return EmpleadoDAO.save(empleado);
 	}
 
 	
-	public static Empleado empleadoXID(String id) {
+	public Empleado empleadoXID(String id) {
 		return EmpleadoDAO.findById(id).get();
 	}
 
 	
-	public static Empleado actualizarEmpleado(Empleado empleado) {
+	public Empleado actualizarEmpleado(Empleado empleado) {
 		
 		return EmpleadoDAO.save(empleado);
 	}
 
 	
-	public static void eliminarEmpleado(String id) {
+	public void eliminarEmpleado(String id) {
 		
 		EmpleadoDAO.deleteById(id);
 		
 	}
 
 
-public static Empleado articuloXID(String id) {
+public Empleado articuloXID(String id) {
 		
 		return EmpleadoDAO.findById(id).get();
 	}

@@ -1,7 +1,9 @@
 package com.example.demo.dto;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -10,10 +12,13 @@ import javax.persistence.Table;
 public class Empleado {
 	@Id
 	public String dni;
-	public String nombre;	
+	@Column
+	public String nombre;
+	@Column
 	public String apellidos;
 	
 	@ManyToOne
+    @JoinColumn(name="departamento")
 	public Departamento departamento;
 
 	public Empleado() {

@@ -60,9 +60,9 @@ public class DepartamentoController {
 		return departamento_actualizado;
 	}
 	
-	@DeleteMapping("/departamentos/{id}")
-	public void eleiminarDepartamento(@PathVariable(name="id")int id) {
-		departamentoServideImpl.eliminarDepartamento(id);
+	@DeleteMapping("/departamentos/{codigo}")
+	public void eleiminarDepartamento(@PathVariable(name="codigo")int codigo) {
+		departamentoServideImpl.eliminarDepartamento(codigo);
 	}
 	
 	
